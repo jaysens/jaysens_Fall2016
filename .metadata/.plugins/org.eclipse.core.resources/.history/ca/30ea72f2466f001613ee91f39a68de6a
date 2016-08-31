@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+//@Jaysen Shi
+// Temperature Conversion
+// 8/30/16
+public class TempConvert {
+	public static void main(String[] args) {
+		System.out.println("This program can convert Celsius to Fahrenheit, and vice versa.");
+		
+		Scanner tempReader = new Scanner(System.in);
+		System.out.println("Press f to convert TO Fahrenheit, c to convert TO Celsius:");
+		char scale = tempReader.next().charAt(0);
+		
+		if(scale == 'f'){
+			Scanner cReader = new Scanner(System.in);
+			System.out.println("Enter the celsius value you want converted: ");
+			double cValue = cReader.nextDouble();
+			
+			System.out.println();
+		} else if (scale == 'c'){
+			Scanner fReader = new Scanner(System.in);
+			System.out.println("Enter the fahrenheit value you want converted: ");
+			double fValue = fReader.nextDouble();
+			
+			System.out.println((5/9) * (fValue - 32));
+		} else {
+			System.out.println("Not A temperature scale!");
+		}
+	}
+}

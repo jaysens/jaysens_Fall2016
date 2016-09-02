@@ -1,0 +1,15 @@
+
+public class Calculate {
+	
+	public static int square(int num){
+		return num * num;
+	}
+	
+	public static int cube(int num){
+		return num * num * num;
+	}
+	
+	public static double average(double num1, double num2){
+		return (num1 + num2)/2;
+	}
+}

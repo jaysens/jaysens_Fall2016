@@ -1,0 +1,9 @@
+
+public class DoMath {
+
+	public static void main(String[] args) {
+		System.out.println(Calculate.foil(14, 2, -23, 10, "n"));
+
+	}
+
+}

@@ -52,15 +52,13 @@ public class Calculate {
 			return num;
 		}
 	}
-
-	public static int max(int num1, int num2){
-		if(num1 > num2){
-			return num1;
-		} else {
-			return num2;
-		}
+	
+	//???
+	public static boolean max(int num1, int num2){
+		return num1 > num2;
 	}
 	
+	//???
 	public static double max(double num1, double num2, double num3){
 		double max;
 		if(num1 > num2){
@@ -75,12 +73,9 @@ public class Calculate {
 		}
 	}
 	
-	public static int min(int num1, int num2){
-		if(num1 > num2){
-			return num2;
-		} else {
-			return num1;
-		}
+	//???
+	public static boolean min(int num1, int num2){
+		return num1 < num2;
 	}
 	
 	public static double round2(double num){

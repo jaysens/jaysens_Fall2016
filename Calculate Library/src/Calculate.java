@@ -99,12 +99,9 @@ public class Calculate {
 	}
 	
 	public static double exponent(double num, int exp){
-		double cur = num;
-		if(exp == 0){
-			return 1;
-		}
+		double cur = 1;
 		
-		for(int i = 1; i < exp; i++){
+		for(int i = 0; i < exp; i++){
 			cur *= num;
 		}
 		return cur;
@@ -120,7 +117,7 @@ public class Calculate {
 	
 	public static boolean isPrime(int num){
 		for(int i  = 2; i < num; i++){
-			if(Calculate.isDivisibleBy(num, i)){
+			if(isDivisibleBy(num, i)){
 				return false;
 			}
 		}
@@ -138,11 +135,15 @@ public class Calculate {
 	}
 	
 	public static double sqrt(double num){
-		double sqrt = 1;
-		while(num != Calculate.round2(sqrt * sqrt)){
-			double s = (sqrt + (num - (sqrt * sqrt)));
-			sqrt = (sqrt + s * s / sqrt)/2;
-		}
-		return Calculate.round2(sqrt);
+		double t;
+		 
+		double squareRoot = num / 2;
+	 
+		do {
+			t = squareRoot;
+			squareRoot = (t + (num / t)) / 2;
+		} while ((t - squareRoot) != 0);
+	 
+		return round2(squareRoot);
 	}
 }

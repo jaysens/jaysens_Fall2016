@@ -2,7 +2,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.sqrt(2));
+		System.out.println(Calculate.isPrime(3));
 
 	}
 

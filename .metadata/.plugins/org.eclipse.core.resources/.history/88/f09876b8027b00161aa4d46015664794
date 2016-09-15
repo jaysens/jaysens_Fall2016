@@ -167,7 +167,7 @@ public class Calculate {
 		if(disc > 0){
 			double root1 = (-b + sqrt(disc))/(2 * a);
 			double root2 = (-b - sqrt(disc))/(2 * a);
-			return round2(root1) + " and " + round2(root2);
+			return round2(root2) + " and " + round2(root1);
 		} else if(disc == 0){
 			double root = -b/(2 * a);
 			return String.valueOf(round2(root));

@@ -25,7 +25,7 @@ public class Calculate {
 		return (angle * 3.14159)/180;
 	}
 	
-	public static double discriminant(double a, double b, double c){
+	public static double discriminant(double b, double a, double c){
 		return (b * b) - (4 * a * c);
 	}
 	
@@ -42,9 +42,6 @@ public class Calculate {
 	}
 	
 	public static boolean isDivisibleBy(int num, int den){
-		if(den == 0){
-			throw new IllegalArgumentException("Error: divide by 0");
-		}
 		return (num % den == 0);
 	}
 	
@@ -103,6 +100,7 @@ public class Calculate {
 	
 	public static double exponent(double num, int exp){
 		double cur = 1;
+		
 		for(int i = 0; i < exp; i++){
 			cur *= num;
 		}
@@ -110,10 +108,6 @@ public class Calculate {
 	}
 	
 	public static int factorial(int num){
-		if(num < 0){
-			throw new IllegalArgumentException("Error: negative number");
-		}
-		
 		int factorial = 1;
 		for(int i = num; i > 0; i--){
 			factorial *= i;
@@ -122,10 +116,6 @@ public class Calculate {
 	}
 	
 	public static boolean isPrime(int num){
-		if(num < 2){
-			throw new IllegalArgumentException("Error: Must be greater than 1");
-		}
-		
 		for(int i  = 2; i < num; i++){
 			if(isDivisibleBy(num, i)){
 				return false;
@@ -150,6 +140,7 @@ public class Calculate {
 		}
 		
 		double a;
+		 
 		double squareRoot = num / 2;
 	 
 		do {
@@ -158,21 +149,5 @@ public class Calculate {
 		} while ((a - squareRoot) != 0);
 	 
 		return round2(squareRoot);
-	}
-	
-	
-	public static String quadForm(int a, int b, int c){
-		double disc = discriminant(a, b, c);
-		
-		if(disc > 0){
-			double root1 = (-b + sqrt(disc))/(2 * a);
-			double root2 = (-b - sqrt(disc))/(2 * a);
-			return round2(root1) + " and " + round2(root2);
-		} else if(disc == 0){
-			double root = -b/(2 * a);
-			return String.valueOf(round2(root));
-		} else {
-			return "no real roots";
-		}
 	}
 }

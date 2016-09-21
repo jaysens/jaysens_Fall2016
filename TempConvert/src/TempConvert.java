@@ -5,39 +5,36 @@ import java.util.Scanner;
 // 8/30/16
 public class TempConvert {
 	public static void main(String[] args) {
-		System.out.println("This program can convert from Celsius to Fahrenheit, and vice versa.");
+		System.out.println("This program can convert Celsius to Fahrenheit, and vice versa.");
 		
 		Scanner tempReader = new Scanner(System.in);
 		System.out.println("Press f to convert TO Fahrenheit, c to convert TO Celsius:");
-		char tempScale = tempReader.next().charAt(0);
+		char scale = tempReader.next().charAt(0);
 		
-		//User chooses to convert to fahrenheit
-		if(tempScale == 'f'){
+		if(scale == 'f'){
+			Scanner cReader = new Scanner(System.in);
 			System.out.println("Enter the celsius value you want converted: ");
-			double celsiusValue = tempReader.nextDouble();
-			double fahrenheitValue = (9.0/5.0 * celsiusValue) + 32;
+			double cValue = cReader.nextDouble();
 			
-			//Setting lower bound
-			if(fahrenheitValue <= -459.67){
-				throw new IllegalArgumentException("Error: Below Absolute Zero");
+			double fValue = (9.0/5.0 * cValue) + 32;
+			if(fValue >= -459.67){
+				System.out.println(fValue + " degrees fahrenheit");
+			} else {
+				System.out.println("Error: Below Absolute Zero");
 			}
-			System.out.println(fahrenheitValue + " degrees fahrenheit");
-			
-		//User chooses to convert to celsius
-		} else if (tempScale == 'c'){
+		} else if (scale == 'c'){
+			Scanner fReader = new Scanner(System.in);
 			System.out.println("Enter the fahrenheit value you want converted: ");
-			double fahrenheitValue = tempReader.nextDouble(); 
-			double celsiusValue = (5.0/9.0) * (fahrenheitValue - 32);
+			double fValue = fReader.nextDouble();
 			
-			//Setting lower bound
-			if(celsiusValue <= -273.15){
-				throw new IllegalArgumentException("Error: Below Absolute Zero");
+			double cValue = (5.0/9.0) * (fValue - 32);
+			if(cValue >= -273.15){
+				System.out.println(cValue + " degrees celsius");
+			} else {
+				System.out.println("Error: Below Absolute Zero");
 			}
-			System.out.println(celsiusValue + " degrees celsius");
-			
-		//User enters neither 'f' nor 'c'	
 		} else {
-			throw new IllegalArgumentException("Not A temperature scale!");
+			System.out.println("Not A temperature scale!");
 		}
 	}
 }

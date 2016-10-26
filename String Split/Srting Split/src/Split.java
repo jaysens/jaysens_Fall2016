@@ -29,17 +29,19 @@ public class Split
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
 
-		System.out.print(sandwichContent("bread lettus bread bread bacon cheese bread cheese"));
+		System.out.print(sandwichContent("breadobread"));
 		
 	}
 	
 	public static String sandwichContent(String foods){
+		//needs to check for 2 breads
+		foods = foods + "xfactor";
 		String[] sandwichArr = foods.split("bread");
-		sandwichArr = Arrays.copyOfRange(sandwichArr, 1, sandwichArr.length - 1);
+		sandwichArr = Arrays.copyOfRange(sandwichArr, 0, sandwichArr.length - 1);
 		String content = "";
 		
-		for(int i = 0; i < sandwichArr.length - 1; i++){
-			content += sandwichArr[i] + "bread";
+		for(int i = 1; i < sandwichArr.length - 1; i++){
+			content += sandwichArr[i] + ", ";
 		}
 		content += sandwichArr[sandwichArr.length - 1];
 		return content;

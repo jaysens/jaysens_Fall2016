@@ -34,20 +34,22 @@ public class Split
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
-		//prediction: [I ,  like ,  red apples]
-		//System.out.println(Arrays.toString("I really like really red apples".split("really")));
-		//result: correct
+		//prediction: [ I , like , red apples]
+		System.out.println(Arrays.toString("I really like really red apples".split("really")));
+		//result:
 		
-		//prediction: [I , ,  like apples]
-		//System.out.println(Arrays.toString("I reallyreally like apples".split("really")));
-		//result: correct
+		//prediction: [ I , , like apples]
+		System.out.println(Arrays.toString("I reallyreally like apples".split("really")));
 		
 		
-		System.out.println(sandwichContentSpaces("breadapplesorangesbread"));
-		System.out.println(sandwichContentSpaces("bread lettuce tomatoes"));
-		System.out.println(sandwichContentSpaces("breadbread"));
-		System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
-		System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
+		
+		System.out.println(sandwichContentSpaces("I like apples"));
+		
+		System.out.println(sandwichContentSpaces("I really like really red apples"));
+		
+		//System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
+		
+		//System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
 		
 	}
 	
@@ -62,7 +64,8 @@ public class Split
 		 * Otherwise, there is no sandwich in the string and boolean isSandwich remains false.
 		 */
 		if(sandwichTest.contains("bread")){
-			sandwichTest = sandwichTest.substring(sandwichTest.indexOf("bread") + 5);
+			sandwichTest = sandwichTest.substring(sandwichTest.indexOf("bread") + 5, 
+														sandwichTest.length());
 			if(sandwichTest.contains("bread")){
 				isSandwich = true;
 			}
@@ -87,7 +90,7 @@ public class Split
 			
 			String content = "";
 			for(int i = 0; i < sandwichArr.length - 1; i++){
-				content += sandwichArr[i];
+				content += sandwichArr[i] + ", ";
 			}
 			content += sandwichArr[sandwichArr.length - 1];
 			return content;

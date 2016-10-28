@@ -44,10 +44,13 @@ public class Split
 		
 		
 		System.out.println(sandwichContentSpaces("breadapplesorangesbread"));
+		
 		System.out.println(sandwichContentSpaces("bread lettuce tomatoes"));
+		System.out.println(sandwichContentSpaces("I like apples"));
 		System.out.println(sandwichContentSpaces("breadbread"));
 		System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
-		System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
+		
+		//System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
 		
 	}
 	

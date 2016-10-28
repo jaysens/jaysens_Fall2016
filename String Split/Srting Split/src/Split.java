@@ -1,3 +1,6 @@
+//Jaysen Shi
+//String Split
+//10/27/16
 import java.util.Arrays;
 
 public class Split 
@@ -29,21 +32,82 @@ public class Split
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
 
-		System.out.print(sandwichContent("breadobread"));
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------		
+		
+		
+		
+		
+		System.out.println(sandwichContent("applesbread frogsbread dirt   mudbread"));
+		
+		System.out.println(sandwichContentSpaces("applesbread frogsbread dirt   mudbread"));
+		
+		System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
+		
+		System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
 		
 	}
 	
-	public static String sandwichContent(String foods){
-		//needs to check for 2 breads
-		foods = foods + "xfactor";
-		String[] sandwichArr = foods.split("bread");
-		sandwichArr = Arrays.copyOfRange(sandwichArr, 0, sandwichArr.length - 1);
-		String content = "";
-		
-		for(int i = 1; i < sandwichArr.length - 1; i++){
-			content += sandwichArr[i] + ", ";
+	
+	//Task pt 1 - returns a string containing the ingredients in a sandwich
+	public static String sandwichContent(String ingredients){
+		boolean isSandwich = false;
+		String sandwichTest = ingredients;
+		/* The double if statements check whether there are at least two slices of bread in the
+		 * string. If there are indeed 2 slices(or more), then the string contains a sandwich 
+		 * and isSandwich is set to true.
+		 * Otherwise, there is no sandwich in the string and boolean isSandwich remains false.
+		 */
+		if(sandwichTest.contains("bread")){
+			sandwichTest = sandwichTest.substring(sandwichTest.indexOf("bread") + 5, 
+														sandwichTest.length());
+			if(sandwichTest.contains("bread")){
+				isSandwich = true;
+			}
 		}
-		content += sandwichArr[sandwichArr.length - 1];
-		return content;
+		
+		/* If there's a sandwich, then the program returns what's in between the slices of bread.
+		 * For fancy sandwiches with more than 2 slices of bread, the layers are separated by 
+		 * commas.
+		 */
+		if(isSandwich){
+			/* A string(doesn't matter what it says) is added to the end of String ingredients. 
+			 * Without performing this step, the code would not work for a string input ending
+			 * with the word "bread".
+			 */
+			ingredients = ingredients + "wythljky";
+			String[] sandwichArr = ingredients.split("bread");
+			
+			/*Reassigning sandwichArr to a shorter copy of itself; the ingredients outside of 
+			 * the sandwich have been left out of this new array.
+			 */
+			sandwichArr = Arrays.copyOfRange(sandwichArr, 0, sandwichArr.length - 1);
+			
+			String content = "";
+			for(int i = 1; i < sandwichArr.length - 1; i++){
+				content += sandwichArr[i] + ", ";
+			}
+			content += sandwichArr[sandwichArr.length - 1];
+			return content;
+			
+		//If there's no sandwich, then the user is notified about this.
+		} else {
+			return "Not a sandwich.";
+		}
+	}
+	
+	//Task pt 2 - this time with spaces
+	public static String sandwichContentSpaces(String ingredients){
+		/* String sandWichString is simply String ingredients reformatted to be more compatible
+		 * with the method sandwichContent. Key difference: no spaces in sandwichString
+		 */
+		String[] sandwichArr = ingredients.split(" ");
+		String sandwichString = "";
+		for(int i = 0; i < sandwichArr.length; i++){
+			sandwichString += sandwichArr[i];
+		}
+		
+		// sandwichString is plugged into the method sandwichContent to avoid having to 
+		//rewrite the exact same code twice.
+		return sandwichContent(sandwichString);
 	}
 }

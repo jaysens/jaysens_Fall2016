@@ -37,14 +37,13 @@ public class Split
 		
 		
 		
-		System.out.println(sandwichContent("applesbread frogsbread dirt   mudbread"));
-		
-		System.out.println(sandwichContentSpaces("applesbread frogsbread dirt   mudbread"));
+		System.out.println(sandwichContentSpaces("applesfrogsbread frogbreadxx bread"));
 		
 		System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
 		
 		System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
 		
+		System.out.println(sandwichContentSpaces("bread tomato bread bacon cheese bread mayo"));
 	}
 	
 	
@@ -80,10 +79,10 @@ public class Split
 			/*Reassigning sandwichArr to a shorter copy of itself; the ingredients outside of 
 			 * the sandwich have been left out of this new array.
 			 */
-			sandwichArr = Arrays.copyOfRange(sandwichArr, 1, sandwichArr.length - 1);
+			sandwichArr = Arrays.copyOfRange(sandwichArr, 0, sandwichArr.length - 1);
 			
 			String content = "";
-			for(int i = 0; i < sandwichArr.length - 1; i++){
+			for(int i = 1; i < sandwichArr.length - 1; i++){
 				content += sandwichArr[i] + ", ";
 			}
 			content += sandwichArr[sandwichArr.length - 1];

@@ -45,7 +45,7 @@ public class Split
 		
 		System.out.println(sandwichContentSpaces("breadapplesorangesbread"));
 		System.out.println(sandwichContentSpaces("bread lettuce tomatoes"));
-		System.out.println(sandwichContentSpaces("bread   bread"));
+		System.out.println(sandwichContentSpaces("breadbread"));
 		System.out.println(sandwichContent("breadapplesbreadcheesechocolatebreadtomatoes"));
 		System.out.println(sandwichContentSpaces("bread apples bread cheese chocolate bread tomatoes"));
 		
@@ -90,13 +90,12 @@ public class Split
 				content += sandwichArr[i];
 			}
 			content += sandwichArr[sandwichArr.length - 1];
-			//If there's at least 1 character in between the two breads, it's a sandwich.
-			if(content.length() > 0){
-				return content;
-			}	
-		}
+			return content;
+			
 		//If there's no sandwich, then the user is notified about this.
-		return "Not a sandwich.";
+		} else {
+			return "Not a sandwich.";
+		}
 	}
 	
 	//Task pt 2 - this time with spaces

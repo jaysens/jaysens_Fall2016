@@ -4,14 +4,13 @@ import java.util.Arrays;
 //11/07/16
 //ArraysLab3
 public class ArraysLab3 {
-	//accepts two arrays and returns an array with the sum of the two
+
 	public static void main(String[] args) {
 		int arr1[] = {5, 6, 9, -8, 12, 0, 1};
 		int arr2[] = {2, 5, 7, 0, -3, -4, -4};
-		rotateRight(arr2);
+		System.out.println((sumEven(arr1)));
 	}
 	
-	//
 	public static int[] sum(int[] arr1, int[] arr2){
 		int[] sum = new int[arr1.length];
 		for(int i = 0; i < sum.length; i++)
@@ -42,8 +41,7 @@ public class ArraysLab3 {
 	public static int sumEven(int arr[]){
 		int sumEven = 0;
 		for(int i: arr)
-			if(i % 2 == 0)
-				sumEven += i;
+			sumEven += i;
 		return sumEven;
 	}
 	
@@ -53,5 +51,5 @@ public class ArraysLab3 {
 			arr[i] = arr[i - 1];
 		}
 		arr[0] = elem1;
-	}	
+	}
 }
